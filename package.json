@@ -1,0 +1,12 @@
+{
+  "name": "s54_funny_bike_stunts",
+  "version": "1.0.0",
+  "description": "Hilarious Bike Fails",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
