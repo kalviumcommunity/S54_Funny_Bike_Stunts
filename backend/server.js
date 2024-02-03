@@ -12,8 +12,11 @@ const db = mongoose.connection
 app.get('/',(req,res)=>{
   const isConnected = db ? true : false;
   res.send(`
-  Connection Status :  ${isConnected ? 'Connected to Mongodb Successfully' : 'Failed to connect to database'}`)
+  Connection Status :  ${isConnected ? 'Connected to Mongodb 🚀 Successfully' : 'Failed to connect ❌ to database'}`)
 })
+// using the router at get endpoint 
+const stuntRouter = require('./routes.js')
+app.use('/bike',stuntRouter)
 
 // ping route
 app.get('/ping',(req,res)=>{
