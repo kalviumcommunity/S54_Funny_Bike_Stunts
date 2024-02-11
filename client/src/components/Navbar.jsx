@@ -9,7 +9,7 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <Flex justify={"center"} mt={"3vh"} pos={"sticky"} top={"3vh"}>
+    <Flex justify={"center"} mt={"3vh"} pos={"sticky"} top={"3vh"} zIndex={"10"}>
       <Flex justifyContent="center" borderBottom="1px solid" boxShadow="0px 2px 5px black" w="70vw" bgColor="rgba(245, 245, 245)" rounded="20px"
         >
 

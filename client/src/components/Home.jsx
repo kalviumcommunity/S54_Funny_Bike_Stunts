@@ -1,10 +1,12 @@
 import React from 'react'
-import { Box, Flex,Wrap , WrapItem, HStack,VStack, Heading, Link, Text } from '@chakra-ui/layout'
+import { Box, Flex,Wrap , WrapItem, HStack,VStack, Heading, Text } from '@chakra-ui/layout'
 import { Image } from '@chakra-ui/image'
 import { Button } from '@chakra-ui/button'
 import { Icon } from '@chakra-ui/icon'
 import { ArrowForwardIcon, ArrowRightIcon, QuestionIcon } from '@chakra-ui/icons'
+import { Link } from 'react-router-dom'
 import bike from "../assets/Designer.png"
+
 const Home = () => {
   return (
     <div>
@@ -21,7 +23,9 @@ const Home = () => {
                 <Heading fontFamily={"Aclonica"} > take a Hilarious Detour</Heading>
             <Wrap m={"4"}>
                 <WrapItem>
+                    <Link to={'/stunt'} >
                     <Button _hover={{cursor : "pointer"}} rightIcon={<ArrowRightIcon />} variant='solid' colorScheme='telegram'>Explore </Button>
+                    </Link>
                 </WrapItem>
                 <WrapItem>
                     <Button backgroundColor={"white"} rightIcon={<QuestionIcon />} variant='outline' colorScheme='telegram'>FAQ</Button>
