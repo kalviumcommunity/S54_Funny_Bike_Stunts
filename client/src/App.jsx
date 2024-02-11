@@ -5,14 +5,21 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import backg from "./assets/backg.webp"
 import Home from './components/Home'
+import { Link, Route, Routes } from 'react-router-dom'
+import Stunt from './components/Stunt'
 const App = () => {
   return (
     <div>
       <VStack>
         <Navbar />
-        <Home />
-        
-        <Footer />
+        {/* <Home /> */}
+        {/* <Stunt /> */}
+        <Routes>
+        <Route path="/" exact component={<Home />} />
+          <Route path='/stunt' element={<Stunt />} />
+        </Routes>
+  
+        {/* <Footer /> */}
         <Box bgImage={backg} backgroundPosition={"top"} position={"fixed"} zIndex={"-1"} w={"100%"} h={"100%"} top={"0"} opacity={"0.05"} />\
         <Box
       zIndex="-2"
