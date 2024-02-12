@@ -4,10 +4,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 var cors = require('cors')
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 mongoose.connect(process.env.MONGODB_URI)
-app.use(cors());
 const db = mongoose.connection
 app.get('/',(req,res)=>{
   const isConnected = db ? true : false;
