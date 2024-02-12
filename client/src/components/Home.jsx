@@ -28,7 +28,10 @@ const Home = () => {
                     </Link>
                 </WrapItem>
                 <WrapItem>
+                    <Link to={'/faq'} >
+
                     <Button backgroundColor={"white"} rightIcon={<QuestionIcon />} variant='outline' colorScheme='telegram'>FAQ</Button>
+                    </Link>
                 </WrapItem>
             </Wrap>
             </VStack>

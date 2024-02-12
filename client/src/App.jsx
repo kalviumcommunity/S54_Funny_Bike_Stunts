@@ -5,18 +5,20 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import backg from "./assets/backg.webp"
 import Home from './components/Home'
-import { Link, Route, Routes } from 'react-router-dom'
+import { BrowserRouter , Route, Routes } from 'react-router-dom'
 import Stunt from './components/Stunt'
+import StuntList from './components/StuntsList'
+import Faq from './components/Faq'
 const App = () => {
   return (
     <div>
       <VStack>
         <Navbar />
-        {/* <Home /> */}
-        {/* <Stunt /> */}
+        <Home />  
         <Routes>
-        <Route path="/" exact component={<Home />} />
-          <Route path='/stunt' element={<Stunt />} />
+        <Route path="/home"  component={<Home />} />
+          <Route path='/stunt' element={<StuntList />} />
+          <Route path='/faq' element={<Faq />} />
         </Routes>
   
         {/* <Footer /> */}
@@ -27,7 +29,6 @@ const App = () => {
       top="0"
       width="100%"
       height="100%"
-      // bgGradient="linear(to-r, rgba(11, 21, 45, 1), rgba(22, 29, 56, 1), rgba(11, 21, 45, 1))"
       bgGradient="linear(to-r, rgba(2,0,36,1), rgba(14,28,39,1), rgba(0,212,255,1))"
       bgSize="100% 100%"
     />
