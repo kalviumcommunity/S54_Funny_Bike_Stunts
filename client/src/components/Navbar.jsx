@@ -33,11 +33,13 @@ const Navbar = () => {
 
             <Box className='btn btn1' mr="1.5vw" p="6px" borderRadius="5px" cursor="pointer" zIndex={"4"}
               borderTop="3px solid #3498db"
-            > <Text pos={"relative"} fontSize={"1.1vmax"}> Sign Up </Text> </Box>   
-
+            > <Text pos={"relative"} fontSize={"1.1vmax"}> Sign Up </Text> </Box>
+               
+            <Link to={"/editstunt"}>
             <Button className='btn btn3'>
               <EditIcon />
             </Button>
+            </Link>
             
           </Box>
         </Box>

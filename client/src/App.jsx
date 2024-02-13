@@ -10,6 +10,8 @@ import Stunt from './components/Stunt'
 import StuntList from './components/StuntsList'
 import Faq from './components/Faq'
 import InsertStunt from './components/InsertStunt'
+import EditStunt from './components/EditStunt'
+import UpdateForm from './components/UpdateForm'
 const App = () => {
   return (
     <div>
@@ -22,6 +24,8 @@ const App = () => {
           <Route path='/stunt' element={<StuntList />} />
           <Route path='/faq' element={<Faq />} />
           <Route path='/addstunt' element={<InsertStunt />} />
+          <Route path='/editstunt' element={<EditStunt />} />
+          <Route path='/update/:id' element={<UpdateForm />} />
         </Routes>
   
         {/* <Footer /> */}
