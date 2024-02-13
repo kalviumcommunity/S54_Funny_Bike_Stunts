@@ -19,7 +19,7 @@ import axios from 'axios';
 import { ArrowLeftIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 
-const Addstunt = () => {
+const InsetStunt = () => {    
   const [input, setInput] = useState('');
   const [link, setLink] = useState('');
   const [rating, setRating] = useState('');
@@ -86,4 +86,4 @@ const Addstunt = () => {
   );
 };
 
-export default Addstunt;
+export default InsetStunt

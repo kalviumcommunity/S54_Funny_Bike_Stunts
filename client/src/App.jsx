@@ -9,7 +9,7 @@ import { BrowserRouter , Route, Routes } from 'react-router-dom'
 import Stunt from './components/Stunt'
 import StuntList from './components/StuntsList'
 import Faq from './components/Faq'
-import Addstunt from './components/Addstunt'
+import InsertStunt from './components/InsertStunt'
 const App = () => {
   return (
     <div>
@@ -21,7 +21,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
           <Route path='/stunt' element={<StuntList />} />
           <Route path='/faq' element={<Faq />} />
-          <Route path='/addstunt' element={<Addstunt />} />
+          <Route path='/addstunt' element={<InsertStunt />} />
         </Routes>
   
         {/* <Footer /> */}
