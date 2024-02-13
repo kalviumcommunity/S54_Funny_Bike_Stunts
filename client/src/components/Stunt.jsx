@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, AspectRatio, HStack, VStack, Flex, Heading, Link, Text } from '@chakra-ui/layout'
+import { Box, AspectRatio, HStack, VStack, Flex, Heading, Text } from '@chakra-ui/layout'
 import { Image } from '@chakra-ui/image'
 import { Avatar, Button } from '@chakra-ui/react'
 import { AddIcon, HamburgerIcon } from '@chakra-ui/icons'

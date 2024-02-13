@@ -16,7 +16,7 @@ const App = () => {
       <VStack  >
         <Navbar />
         {/* <Home />   */}
-        {/* <StuntList /> */}
+   
         <Routes>
         <Route path="/" element={<Home />} />
           <Route path='/stunt' element={<StuntList />} />

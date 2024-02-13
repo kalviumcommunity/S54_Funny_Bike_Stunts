@@ -17,12 +17,13 @@ import {
 
 import axios from 'axios';
 import { ArrowLeftIcon } from '@chakra-ui/icons';
-import { Link } from 'react-router-dom';
+import { Link, redirect } from 'react-router-dom';
 
-const InsetStunt = () => {    
+const InsertStunt = () => {    
   const [input, setInput] = useState('');
   const [link, setLink] = useState('');
   const [rating, setRating] = useState('');
+  // const Redirect = redirect()
     const data = {
     "title" : input ,
     "image" : link ,
@@ -34,6 +35,7 @@ const InsetStunt = () => {
       try {
         await axios.post('https://funny-bike-stunt-fails-sravanr788.onrender.com/bike',data);
         console.log(data)
+        redirect("/stunt")
         console.log('Stunt posted successfully!');
       } catch (err) {
         console.error('Error posting stunt:', err);
@@ -86,4 +88,4 @@ const InsetStunt = () => {
   );
 };
 
-export default InsetStunt
+export default InsertStunt
