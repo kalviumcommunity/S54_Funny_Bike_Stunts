@@ -18,7 +18,7 @@ const StuntList = () => {
                 })
         }
         getData()
-    })
+    },[])
     console.log(data)
 
     return (
