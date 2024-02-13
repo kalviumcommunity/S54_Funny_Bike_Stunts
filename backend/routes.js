@@ -45,7 +45,7 @@ router.post('/',async(req,res)=>{
 router.put('/:id', async(req,res)=>{
   try {
     const id = req.params.id
-      const stunt = await Stunt.findByIdAndUpdate({_id:id},{
+      const stunt = await Stunt.findByIdAndUpdate({
         title : req.body.title ,
         image : req.body.image,
         failRating : req.body.failRating
