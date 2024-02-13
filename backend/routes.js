@@ -42,6 +42,23 @@ router.post('/',async(req,res)=>{
         
     }
 })
+router.put('/:id', async(req,res)=>{
+  try {
+    const id = req.params.id
+      const stunt = await Stunt.findByIdAndUpdate({_id:id},{
+        title : req.body.title ,
+        image : req.body.image,
+        failRating : req.body.failRating
+      })
+      if (!stunt) {
+          return res.status(404).json({ error: 'Stunt not found' });
+        }
+      
+      const s1 = await stunt.save()
+      res.json(s1)
+  } catch (error) {
+      res.send('Err' + error)
+  }})
 
 router.patch('/:id',async(req,res)=>{
     try {
