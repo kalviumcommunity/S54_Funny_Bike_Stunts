@@ -1,9 +1,10 @@
 import React from 'react'
 import { Box, AspectRatio, HStack, VStack, Flex, Heading, Link, Text } from '@chakra-ui/layout'
 import { Image } from '@chakra-ui/image'
-import { Avatar } from '@chakra-ui/react'
-import { HamburgerIcon } from '@chakra-ui/icons'
+import { Avatar, Button } from '@chakra-ui/react'
+import { AddIcon, HamburgerIcon } from '@chakra-ui/icons'
 import { GridItem , Grid } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 const Stunt = ({stunt}) => {
   console.log(stunt)
@@ -16,7 +17,7 @@ const Stunt = ({stunt}) => {
       <Box zIndex={"5"} w={"18vmax"} h={"fit-content"} bgColor={"#F2EDF8"} p={"2"} rounded={"10px"}>
         <AspectRatio maxW='560px' ratio={4/3}>
           <Image
-            src={stunt.image_link}
+            src={stunt.image_link ? stunt.image_link : stunt.image}
             ></Image>
         </AspectRatio>
         <VStack spacing={"2"}>
@@ -28,8 +29,8 @@ const Stunt = ({stunt}) => {
                   <Avatar />
                 </Box>
                 <Box alignItems={"center"}>
-                  <Text fontSize={"15px"} fontWeight={"600"}>{stunt.user}</Text>
-                  <Text color={"gray"}>{stunt.time}</Text>
+                  <Text fontSize={"15px"} fontWeight={"600"}>{stunt.user ? stunt.user : "Carl Henry"}</Text>
+                  <Text color={"gray"}>{stunt.time ? stunt.time : "9 days ago"}</Text>
                 </Box>
               </HStack>
 
@@ -43,6 +44,15 @@ const Stunt = ({stunt}) => {
       </Box>
             </GridItem>
       ))}
+      <Box>
+        <Link to='/addstunt' >
+        <Button position={"fixed"} bottom={"2%"} right={"1%"} className='btn btn1' zIndex={"7"} border="3px solid #101010" _hover={{
+          cursor : "pointer" , transform : "scale(1.03)"
+        }}>
+          <AddIcon />
+        </Button>
+          </Link>
+      </Box>
       </Grid>
     </div>
   )

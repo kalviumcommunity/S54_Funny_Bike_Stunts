@@ -5,7 +5,7 @@ const Faq = () => {
   return (
     <div>
         <Box bgColor={"white"} fontFamily={"Aclonica"} w={"80vw"} m={"6"} rounded={"20px"}>
-            <Heading p={"10"} fontFamily={"Aclonica"}>FAQ</Heading>
+            <Heading p={"10"} >FAQ</Heading>
             <Accordion p={"2"} whiteSpace={"balance"} defaultIndex={[0]} allowMultiple>
   <AccordionItem>
     <h2>
