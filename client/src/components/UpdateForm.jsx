@@ -47,7 +47,7 @@ const UpdateForm = () => {
 
     const updateStunt = (id) =>{
         console.log(id)
-        axios.put(`https://funny-bike-stunt-fails-sravanr788.onrender.com/bike/${id}`,{
+        axios.patch(`https://funny-bike-stunt-fails-sravanr788.onrender.com/bike/${id}`,{
         "title" : title ,"image_link" : link , "failRating" :  rating
         })
         .then((res) => {

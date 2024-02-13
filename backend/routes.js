@@ -66,6 +66,8 @@ router.patch('/:id',async(req,res)=>{
         if (!stunt) {
             return res.status(404).json({ error: 'Stunt not found' });
           }
+        stunt.title = req.body.title
+        stunt.image = req.body.image  
         stunt.failRating = req.body.failRating
         const s1 = await stunt.save()
         res.json(s1)
