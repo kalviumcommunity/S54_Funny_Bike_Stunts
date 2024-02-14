@@ -2,18 +2,39 @@ import React from 'react'
 import { Box, AspectRatio, HStack, VStack, Flex, Heading, Text } from '@chakra-ui/layout'
 import { Image } from '@chakra-ui/image'
 import { Avatar, Button } from '@chakra-ui/react'
-import { AddIcon, HamburgerIcon } from '@chakra-ui/icons'
+import { AddIcon } from '@chakra-ui/icons'
 import { GridItem , Grid } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
+import { MagnifyingGlass } from 'react-loader-spinner'
+
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 const Stunt = ({stunt}) => {
   console.log(stunt)
   return (
-    <div> <Grid templateColumns='repeat(auto-fit , minmax(400px,1fr))' placeItems={"center"} whiteSpace={"30"}  maxWidth={"80vw"} w={"100%"}>
-    
-      {stunt.map((stunt)=>(
+    <>
+    {stunt.length==0 ?
+      (
+    <Flex justifyContent={"center"} my={"35vh"} alignItems={"center"}>
+    <MagnifyingGlass
+      visible={true}
+      height="80"
+      width="80"
+      ariaLabel="magnifying-glass-loading"
+      wrapperStyle={{}}
+      wrapperClass="magnifying-glass-wrapper"
+      glassColor="#c0efff"
+      color="#e15b64"
+      />
+      </Flex>
+    )
+    : (
 
-<GridItem key={stunt._id} spacing={10} my={"10"} >
+        <div>
+           <Grid templateColumns='repeat(auto-fit , minmax(400px,1fr))' placeItems={"center"} whiteSpace={"30"}  maxWidth={"80vw"} w={"100%"}>
+        
+        {stunt.map((stunt)=>(
+          
+          <GridItem key={stunt._id} spacing={10} my={"10"} >
       <Box zIndex={"5"} w={"18vmax"} h={"fit-content"} bgColor={"#F2EDF8"} p={"2"} rounded={"10px"}>
         <AspectRatio maxW='560px' ratio={4/3}>
           <Image
@@ -45,17 +66,19 @@ const Stunt = ({stunt}) => {
             </GridItem>
       ))}
       <Box>
-        <Link to='/addstunt' >
-        <Button position={"fixed"} bottom={"2%"} right={"1%"} className='btn btn1' zIndex={"7"} border="3px solid #101010" _hover={{
-          cursor : "pointer" , transform : "scale(1.03)"
-        }}>
-          <AddIcon />
-        </Button>
-          </Link>
+      <Link to='/addstunt' >
+      <Button position={"fixed"} bottom={"2%"} right={"1%"} className='btn btn1' zIndex={"7"} border="3px solid #101010" _hover={{
+        cursor : "pointer" , transform : "scale(1.03)"
+      }}>
+      <AddIcon />
+      </Button>
+      </Link>
       </Box>
       </Grid>
-    </div>
-  )
-}
-
+      </div>
+      )
+    }
+    </>
+    )}
+    
 export default Stunt
