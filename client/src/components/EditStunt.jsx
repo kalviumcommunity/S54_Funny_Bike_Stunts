@@ -7,6 +7,7 @@ import { Avatar, Button } from '@chakra-ui/react'
 import { AddIcon, HamburgerIcon } from '@chakra-ui/icons'
 import { Link } from 'react-router-dom'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import { MagnifyingGlass } from 'react-loader-spinner'
 
 const EditStunt = () => {
     const [data, setData] = useState([])
@@ -32,14 +33,27 @@ const EditStunt = () => {
           .catch((err) => console.log("error"));
       };
   return (
-    // <div>
-    //     <Stunt stunt={data} />
-    // </div>
-    <div> <Grid templateColumns='repeat(auto-fit , minmax(400px,1fr))' placeItems={"center"} whiteSpace={"30"}  maxWidth={"80vw"} w={"100%"}>
+    <>
+    {stunt.length==0 ?
+      (
+        <Flex justifyContent={"center"} my={"35vh"} alignItems={"center"}>
+    <MagnifyingGlass
+      visible={true}
+      height="80"
+      width="80"
+      ariaLabel="magnifying-glass-loading"
+      wrapperStyle={{}}
+      wrapperClass="magnifying-glass-wrapper"
+      glassColor="#c0efff"
+      color="#e15b64"
+      />
+      </Flex>
+    ) : (
+      <div> <Grid templateColumns='repeat(auto-fit , minmax(400px,1fr))' placeItems={"center"} whiteSpace={"30"}  maxWidth={"80vw"} w={"100%"}>
     
       {stunt.map((stunt)=>(
-
-<GridItem key={stunt._id} spacing={10} my={"10"} >
+        
+        <GridItem key={stunt._id} spacing={10} my={"10"} >
       <Box zIndex={"5"} w={"18vmax"} h={"fit-content"} bgColor={"#F2EDF8"} p={"2"} rounded={"10px"}>
         <AspectRatio maxW='560px' ratio={4/3}>
           <Image
@@ -80,7 +94,8 @@ const EditStunt = () => {
       </Box>
       </Grid>
     </div>
+)}
+  </>
   )
-}
-
+      }
 export default EditStunt

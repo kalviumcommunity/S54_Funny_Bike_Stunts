@@ -2,9 +2,19 @@ const express = require('express');
 const router = express.Router()
 const app = express();
 app.use(express.json())
-
+const validation = require('./joi.js')
 const mongoose = require('mongoose');
 const Stunt = require('./schema.js')
+
+const validateRequest = (req, res, next) => {
+  const { error } = validation.validate(req.body);
+  if (error) {
+      return res.status(400).json({ error: error.details[0].message });
+  }
+  res.send("Data got validated successfully ")
+  next();
+};
+
 
 router.get('/',async (req,res)=>{
     try{
@@ -25,7 +35,7 @@ router.get('/:id',async (req,res)=>{
     }
 })
 
-router.post('/',async(req,res)=>{
+router.post('/',validateRequest,async(req,res)=>{
     const stunt = new Stunt({
         title : req.body.title,
         description : req.body.description,
@@ -42,25 +52,8 @@ router.post('/',async(req,res)=>{
         
     }
 })
-router.put('/:id', async(req,res)=>{
-  try {
-    const id = req.params.id
-      const stunt = await Stunt.findByIdAndUpdate({_id :id},{
-        title : req.body.title ,
-        image : req.body.image,
-        failRating : req.body.failRating
-      })
-      if (!stunt) {
-          return res.status(404).json({ error: 'Stunt not found' });
-        }
-      
-      const s1 = await stunt.save()
-      res.json(s1)
-  } catch (error) {
-      res.send('Err' + error)
-  }})
 
-router.patch('/:id',async(req,res)=>{
+router.patch('/:id',validateRequest,async(req,res)=>{
     try {
         const stunt = await Stunt.findById(req.params.id)
         if (!stunt) {
@@ -76,7 +69,7 @@ router.patch('/:id',async(req,res)=>{
     }
 })
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id',validateRequest, async (req, res) => {
     try {
       const stunt = await Stunt.findByIdAndDelete(req.params.id);
     //   res.status(201).send(stunt)
