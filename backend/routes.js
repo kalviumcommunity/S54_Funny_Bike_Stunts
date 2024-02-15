@@ -69,7 +69,7 @@ router.patch('/:id',validateRequest,async(req,res)=>{
     }
 })
 
-router.delete('/:id',validateRequest, async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
       const stunt = await Stunt.findByIdAndDelete(req.params.id);
     //   res.status(201).send(stunt)

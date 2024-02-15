@@ -36,7 +36,7 @@ const UpdateForm = () => {
                 .then((res) => {
                     console.log(res.data)
                     setTitle(res.data.title)
-                    setLink(res.data.image_link)
+                    setLink(res.data.image)
                     setRating(res.data.failRating)
                 }).catch((err) => {
                     console.log(err);
@@ -47,7 +47,7 @@ const UpdateForm = () => {
 
     const updateStunt = () =>{
         axios.patch(`https://funny-bike-stunt-fails-sravanr788.onrender.com/bike/${id}`,{
-        "title" : title ,"image_link" : link , "failRating" :  rating
+        "title" : title ,"image" : link , "failRating" :  rating
         })
         .then((res) => {
             console.log(res)

@@ -30,7 +30,8 @@ const EditStunt = () => {
           .then(() => {
             window.location.reload()
           })
-          .catch((err) => console.log("error"));
+          .catch((err) => console.log("error",err));
+          console.log(id)
       };
   return (
     <>
@@ -57,7 +58,7 @@ const EditStunt = () => {
       <Box zIndex={"5"} w={"18vmax"} h={"fit-content"} bgColor={"#F2EDF8"} p={"2"} rounded={"10px"}>
         <AspectRatio maxW='560px' ratio={4/3}>
           <Image
-            src={stunt.image_link ? stunt.image_link : stunt.image}
+            src={stunt.image}
             ></Image>
         </AspectRatio>
         <VStack spacing={"2"}>
