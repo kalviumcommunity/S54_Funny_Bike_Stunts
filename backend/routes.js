@@ -54,7 +54,7 @@ router.post('/',validateRequest,async(req,res)=>{
     }
 })
 
-router.post("/login",async(req,res)=>{
+router.post("/login",async(req,res)=>{ 
   try {
       const newuser = await User.create(req.body);
       if (newuser) {
