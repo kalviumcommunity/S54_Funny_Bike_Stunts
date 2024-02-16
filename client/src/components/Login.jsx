@@ -25,11 +25,11 @@ const Login = () => {
          const res = await axios.post("https://funny-bike-stunt-fails-sravanr788.onrender.com/bike/login",{
                 username:username,
                 password:password  
-              })
-              console.log(res)
-            document.cookie = `token=${res.data.token};expires=Thu,18 Dec 2024 12:00:00 UTC`;
-
-        }catch(err){
+            })
+            console.log(res)
+              document.cookie = `token=${res.data.token};expires=Thu,18 Dec 2024 12:00:00 UTC`;
+              
+            }catch(err){
             console.log("err" + err)
         }
     }
