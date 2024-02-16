@@ -51,7 +51,7 @@ router.post('/',validateRequest,async(req,res)=>{
         const s1 = await stunt.save()
         res.json(s1)
     } catch (error) {
-        
+        res.send('err '+error)
     }
 })
 
@@ -61,13 +61,13 @@ router.post("/login",async(req,res)=>{
       if (newuser) {
         const { username } = newuser
         const token = jwt.sign(username,process.env.SECRET_KEY)
-          res.status(201).json({newuser,token});
+        res.status(201).json({newuser,token})
       } else {
           res.status(400).send("cannot create user ");
       }
   } catch (err) {
       console.error(err);
-      res.status(500).send("Internal Server Error");
+      res.send(" error " + err);
   }
 })
 
