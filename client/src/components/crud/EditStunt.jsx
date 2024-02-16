@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import Stunt from './Stunt'
+import Stunt from '../Stunt'
 import { Box, AspectRatio, HStack, VStack, Flex,Grid , GridItem, Heading, Text } from '@chakra-ui/layout'
 import { Image } from '@chakra-ui/image'
 import { Avatar, Button } from '@chakra-ui/react'

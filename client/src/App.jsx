@@ -5,24 +5,23 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import backg from "./assets/backg.webp"
 import Home from './components/Home'
-import { BrowserRouter , Route, Routes } from 'react-router-dom'
-import Stunt from './components/Stunt'
+import { Route, Routes } from 'react-router-dom'
 import StuntList from './components/StuntsList'
 import Faq from './components/Faq'
-import InsertStunt from './components/InsertStunt'
-import EditStunt from './components/EditStunt'
-import UpdateForm from './components/UpdateForm'
+import InsertStunt from './components/crud/InsertStunt'
+import EditStunt from './components/crud/EditStunt'
+import UpdateForm from './components/crud/UpdateForm'
+import Login from './components/login'
 const App = () => {
   return (
     <div>
       <VStack  >
         <Navbar />
-        {/* <Home />   */}
-   
         <Routes>
         <Route path="/" element={<Home />} />
           <Route path='/stunt' element={<StuntList />} />
           <Route path='/faq' element={<Faq />} />
+          <Route path='/login' element={<Login />} />
           <Route path='/addstunt' element={<InsertStunt />} />
           <Route path='/editstunt' element={<EditStunt />} />
           <Route path='/update/:id' element={<UpdateForm />} />

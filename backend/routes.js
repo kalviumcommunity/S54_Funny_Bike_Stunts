@@ -4,7 +4,8 @@ const app = express();
 app.use(express.json())
 const validation = require('./joi.js')
 const mongoose = require('mongoose');
-const Stunt = require('./schema.js')
+const Stunt = require('./schema.js');
+const User = require('./schema/userSchema.js');
 
 const validateRequest = (req, res, next) => {
   const { error } = validation.validate(req.body);
@@ -51,6 +52,21 @@ router.post('/',validateRequest,async(req,res)=>{
     } catch (error) {
         
     }
+})
+
+router.post("/login",async(req,res)=>{ 
+  try {
+      const newuser = await User.create(req.body);
+      if (newuser) {
+          res.status(201).json(newuser);
+      } else {
+          res.status(400);
+          throw new Error("cannot create user ");
+      }
+  } catch (err) {
+      console.error(err);
+      res.status(500).send("Internal Server Error");
+  }
 })
 
 router.patch('/:id',validateRequest,async(req,res)=>{
