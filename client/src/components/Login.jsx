@@ -30,7 +30,7 @@ const Login = () => {
             document.cookie = `token=${res.data.token};expires=Thu,18 Dec 2024 12:00:00 UTC`;
 
         }catch(err){
-            console.log("err",err)
+            console.log("err" + err)
         }
     }
     const logoutHandler = () => {
