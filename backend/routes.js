@@ -6,7 +6,8 @@ const validation = require('./joi.js')
 const mongoose = require('mongoose');
 const Stunt = require('./schema.js');
 const User = require('./schema/userSchema.js');
-
+const jwt = require('jsonwebtoken')
+require('dotenv').config()
 const validateRequest = (req, res, next) => {
   const { error } = validation.validate(req.body);
   if (error) {
@@ -58,10 +59,11 @@ router.post("/login",async(req,res)=>{
   try {
       const newuser = await User.create(req.body);
       if (newuser) {
-          res.status(201).json(newuser);
+        const { username } = newuser
+        const token = jwt.sign(username,process.env.SECRET_KEY)
+          res.status(201).json({newuser,token});
       } else {
-          res.status(400);
-          throw new Error("cannot create user ");
+          res.status(400).send("cannot create user ");
       }
   } catch (err) {
       console.error(err);

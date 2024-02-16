@@ -20,15 +20,21 @@ const Login = () => {
     const [password, setPassword] = useState("")
     const [show, setShow] = React.useState(false)
     const handleClick = () => setShow(!show)
-    const loginHandler = () => {
-        axios.post("https://funny-bike-stunt-fails-sravanr788.onrender.com/bike/login",{
-            username:username,
-            password:password  
-          })
-        document.cookie = `username=${username};expires=Thu,18 Dec 2024 12:00:00 UTC`;
+    const loginHandler =async () => {
+        try{
+         const res = await axios.post("https://funny-bike-stunt-fails-sravanr788.onrender.com/bike/login",{
+                username:username,
+                password:password  
+              })
+              console.log(res)
+            document.cookie = `token=${res.data.token};expires=Thu,18 Dec 2024 12:00:00 UTC`;
+
+        }catch(err){
+            console.log("err",err)
+        }
     }
     const logoutHandler = () => {
-        document.cookie = `username=${username}; expires=Thu, 18 Dec 2021 12:00:00 UTC;`;
+        document.cookie = `token=;expires=Thu, 18 Dec 2021 12:00:00 UTC;`;
     }
     return (
         <div>
