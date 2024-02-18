@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router()
+var cookieParser = require('cookie-parser')
 const app = express();
+app.use(cookieParser())
 app.use(express.json())
 const validation = require('./joi.js')
 const mongoose = require('mongoose');
@@ -44,7 +46,7 @@ router.post('/',validateRequest,async(req,res)=>{
         image : req.body.image,
         video : req.body.video,
         failRating : req.body.failRating,
-        Location : req.body.Location
+        created_by : req.body.created_by
     })
 
     try {
@@ -59,8 +61,9 @@ router.post("/login",async(req,res)=>{
   try {
       const newuser = await User.create(req.body);
       if (newuser) {
-        const { username } = newuser
-        const token = jwt.sign(username,process.env.SECRET_KEY)
+        const { _id, username } = newuser;
+        const payload = { _id, username };
+        const token = jwt.sign(payload, process.env.SECRET_KEY);
         res.status(201).json({newuser,token})
       } else {
           res.status(400).send("cannot create user ");

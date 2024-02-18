@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Stunt from './Stunt'
-import { Flex, Grid, GridItem } from '@chakra-ui/react'
+import { Box, Flex, Grid, GridItem } from '@chakra-ui/react'
+import FilterUsers from './FilterUsers'
 
 
 const StuntList = () => {
-
+    const [filterValue,setFilterValue] = useState('All')
     const [data, setData] = useState([])
     useEffect(() => {
         const getData = async () => {
@@ -20,14 +21,20 @@ const StuntList = () => {
         getData()
     },[])
     console.log(data)
+    console.log(filterValue)
+    const filteredStunt = data.filter((stunt)=>stunt.created_by == filterValue || filterValue=="All")
 
     return (
         <>
-            <Flex justify={"center"}>
+            <Box  justify={"center"}>
+                <Box>
+                <FilterUsers filterValue={filterValue} setFilterValue={setFilterValue}  stunt={data} />
+                </Box>
+                <Box>
+                <Stunt stunt={filteredStunt} />
+                </Box>
 
-                <Stunt stunt={data} />
-
-            </Flex>
+            </Box >
         </>
     )
 }
