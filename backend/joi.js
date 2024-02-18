@@ -4,6 +4,7 @@ const validation=joi.object({
     title:joi.string().min(8).max(30).required(),
     image:joi.string().required(),
     failRating:joi.number().integer().min(0).max(10).required(),
+    created_by: joi.string().required()
 })
 
 module.exports=validation

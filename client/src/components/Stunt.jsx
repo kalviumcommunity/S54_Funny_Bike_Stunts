@@ -50,7 +50,7 @@ const Stunt = ({stunt}) => {
                   <Avatar />
                 </Box>
                 <Box alignItems={"center"}>
-                  <Text fontSize={"15px"} fontWeight={"600"}>{stunt.user ? stunt.user : "Carl Henry"}</Text>
+                  <Text fontSize={"15px"} fontWeight={"600"}>{stunt.created_by ? stunt.created_by : "Carl Henry"}</Text>
                   <Text color={"gray"}>{stunt.time ? stunt.time : "9 days ago"}</Text>
                 </Box>
               </HStack>

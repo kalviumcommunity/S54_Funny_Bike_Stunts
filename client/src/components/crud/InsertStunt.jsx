@@ -24,21 +24,29 @@ const InsertStunt = () => {
   const [link, setLink] = useState('');
   const [rating, setRating] = useState('');
   // const Redirect = redirect()
+  function getCookie(name) {
+    let cookieArray = document.cookie.split('; ');
+    let cookie = cookieArray.find((row) => row.startsWith(name + '='));
+    return cookie ? cookie.split('=')[1] : null;
+  }
+  const username = getCookie('username')
     const data = {
     "title" : input ,
     "image" : link ,
-    "failRating" : rating
+    "failRating" : rating,
+    "created_by" : username,
     }
   const SubmitPost = (e) => {
     e.preventDefault();
     const postStunt = async () => {
       try {
-        await axios.post('https://funny-bike-stunt-fails-sravanr788.onrender.com/bike',data);
+        let res = await axios.post('https://funny-bike-stunt-fails-sravanr788.onrender.com/bike',data);
         console.log(data)
         redirect("/stunt")
+        console.log(res)
         console.log('Stunt posted successfully!');
       } catch (err) {
-        console.error('Error posting stunt:', err);
+        console.error('Error posting stunt:',username, err);
       }
     };
     postStunt();

@@ -18,9 +18,9 @@ const stuntSchema = new mongoose.Schema({
     failRating : {
         type : Number
     },
-    // Location : {
-    //     type : String
-    // }
+    created_by: {
+        type: String 
+    }
 })
 
 const Stunt = mongoose.model('stuntfails',stuntSchema)

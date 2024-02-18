@@ -28,13 +28,14 @@ const Login = () => {
             })
             console.log(res)
               document.cookie = `token=${res.data.token};expires=Thu,18 Dec 2024 12:00:00 UTC`;
-              
+              document.cookie = `username=${username}`;
             }catch(err){
             console.log("err" + err)
         }
     }
     const logoutHandler = () => {
         document.cookie = `token=;expires=Thu, 18 Dec 2021 12:00:00 UTC;`;
+        document.cookie = `username=;expires=Thu, 18 Dec 2021 12:00:00 UTC;`;
     }
     return (
         <div>
