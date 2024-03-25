@@ -4,19 +4,20 @@ import React from 'react'
 const Faq = () => {
   return (
     <div>
-        <Box bgColor={"white"} fontFamily={"Aclonica"} w={"80vw"} m={"6"} rounded={"20px"}>
-            <Heading p={"10"} >FAQ</Heading>
-            <Accordion p={"2"} whiteSpace={"balance"} defaultIndex={[0]} allowMultiple>
-  <AccordionItem>
-    <h2>
-      <AccordionButton>
-        <Box as="span" flex='1' textAlign='center' fontSize={"larger"}>
-        Q . What is Wheelie Whoops?
-        </Box>
-        <AccordionIcon />
-      </AccordionButton>
-    </h2>
-    <AccordionPanel pb={4} color={"Highlight"} fontSize={"18px"}>
+        <Box bgColor={"white"} fontFamily={"Aclonica"} w={"80vw"} m={"6"} rounded={"20px"} textAlign={"center"}>
+        <Heading p={"10"} fontSize={{ base: "3xl", md: "2xl", lg: "5xl" }}>FAQ</Heading>
+        <Accordion p={"2"} whiteSpace={"balance"} defaultIndex={[0]} allowMultiple>
+          <AccordionItem>
+            <h2>
+              <AccordionButton>
+                <Box as="span" flex='1' textAlign='center' fontSize={{ base: "xl", md: "2xl" }}>
+                  Q . What is Wheelie Whoops?
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+
+    <AccordionPanel pb={4} color={"Highlight"}>
     Wheelie Whoops is a platform that celebrates the lighter side of motorcycle stunts. It’s a curated collection of entertaining and sometimes downright comical moments where riders attempt wheelies, jumps, and tricks but end up with unexpected outcomes. From unintentional dismounts to gravity-defying mishaps, Wheelie Whoops captures it all.
     </AccordionPanel>
   </AccordionItem>

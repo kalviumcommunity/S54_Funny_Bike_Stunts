@@ -58,7 +58,7 @@ const UpdateForm = () => {
 
   return (
     <div>
-        <FormControl  color="black" isInvalid={isError} w={"40vw"} p={"3%"} bgColor={"white"} rounded={"25px"}>
+        <FormControl  color="black" isInvalid={isError} mt={{base : "6"}} w={{base : "90vw",md : "40vw"}} p={{ base: "5%", md: "3%" }}bgColor={"white"} rounded={"25px"} align="center">
         <Heading my={"2%"}>Update  Post </Heading>
         <Text>Please update  the details you want to</Text>
         <FormLabel  my={"2%"}>Title</FormLabel>
